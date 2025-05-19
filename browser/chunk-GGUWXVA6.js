@@ -1,0 +1,1 @@
+import{i as n}from"./chunk-HLK7YWVS.js";import{V as m,aa as e,i as r,m as i}from"./chunk-SB4DDMOQ.js";var s=[{path:"",component:n}],l=(()=>{let o=class o{};o.\u0275fac=function(p){return new(p||o)},o.\u0275mod=i({type:o}),o.\u0275inj=r({imports:[m,e.forChild(s)]});let t=o;return t})();export{l as RegisterRoutingModule};

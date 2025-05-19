@@ -1,0 +1,1 @@
+import{a as n}from"./chunk-WWE5PKBK.js";import{V as e,aa as m,i,m as r}from"./chunk-SB4DDMOQ.js";var s=[{path:"",component:n}],l=(()=>{let t=class t{};t.\u0275fac=function(p){return new(p||t)},t.\u0275mod=r({type:t}),t.\u0275inj=i({imports:[e,m.forChild(s)]});let o=t;return o})();export{l as DashboardModule};
