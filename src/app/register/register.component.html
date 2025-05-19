@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+      <div class="container">
+        <h1>Registration Form</h1>
+        <h6 style="color: red;">{{errorMessage}}</h6>
+        <form #form="ngForm" (ngSubmit)="submit(form)">    
+                <div class="form-group">
+                    <label for="username">Username <span class="required">*</span></label>
+                    <input type="text" 
+                    id="username" 
+                    class="form-control" 
+                    name="username" 
+                    required
+                    [(ngModel)]="user.username" 
+                    #uname="ngModel">
+                    <div *ngIf="uname.invalid && (uname.dirty || uname.touched)"class="alert-alert-danger">
+                        <div *ngIf="uname.errors?.['required']" style="color: red;">Username is required.</div>
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label for="firstname">Firstname <span class="required">*</span></label>
+                    <input type="text" 
+                    id="firstname" 
+                    class="form-control"
+                    required
+                    name="firstName"
+                    [(ngModel)]="user.firstName" 
+                    #fname="ngModel">
+                    <div *ngIf="fname.invalid && (fname.dirty || fname.touched)"class="alert-alert-danger">
+                        <div *ngIf="fname.errors?.['required']" style="color: red;">Firstname is required.</div>
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label for="lastname">Lastname <span class="required">*</span></label>
+                    <input type="text" 
+                    id="lastname" 
+                    name="lastName"
+                    required
+                    class="form-control"
+                    [(ngModel)]="user.lastName"
+                    #lname="ngModel">
+                    <div *ngIf="lname.invalid && (lname.dirty || lname.touched)"class="alert-alert-danger">
+                        <div *ngIf="lname.errors?.['required']" style="color: red;">Lastname is required.</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password <span class="required">*</span></label>
+                    <input type="password" 
+                    id="password" 
+                    class="form-control"
+                    name="password"
+                    required
+                    [(ngModel)]="user.password"
+                    #pwd="ngModel">
+
+                    <div *ngIf="pwd.invalid && (pwd.dirty || pwd.touched)"class="alert-alert-danger">
+                        <div *ngIf="pwd.errors?.['required']" style="color: red;">Password is required.</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirmpassword <span class="required">*</span></label>
+                    <input type="password" 
+                    id="confirmpassword"
+                    name="confirmPassword"
+                    required
+                    class="form-control"
+                    [(ngModel)]="user.confirmPassword"
+                    #cmpwd="ngModel">
+                    <div *ngIf="cmpwd.invalid && (cmpwd.dirty || cmpwd.touched) || pwd.value!==cmpwd.value" style="color: red;" class="alert-alert-danger" >
+                        Password and Confirmpassword must be match
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" 
+                    id="email" 
+                    placeholder="adhi@gmail.com"
+                    email
+                    name="email"
+                    class="form-control"
+                    [(ngModel)]="user.email"
+                    #email="ngModel">
+                    <!-- <div *ngIf="email.invalid && (email.dirty || email.touched)"class="alert-alert-danger">
+                        <div *ngIf="email.errors?.['required']" style="color: red;">Email is required.</div>
+                        <div *ngIf="email.errors?.['email']" style="color: red;">Invalid Email format.</div>
+                    </div> -->
+                    <div *ngIf="email.touched"class="alert-alert-danger">
+                        <div *ngIf="!email.value && !phone.value" style="color: red;">Either an email or a phone number is required.</div>
+                        <div *ngIf="email.errors?.['email']" style="color: red;">Invalid Email format.</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" 
+                    id="phone" 
+                    name="phone"
+                    class="form-control"
+                    [(ngModel)]="user.phone"
+                    #phone="ngModel">
+                    <!-- <div *ngIf="phone.invalid && (phone.dirty || phone.touched)"class="alert-alert-danger">
+                        <div *ngIf="phone.errors?.['required']" style="color: red;">Phone is required.</div>
+                    </div> -->
+                    <div *ngIf="phone.touched"class="alert-alert-danger">
+                        <div *ngIf="!email.value && !phone.value" style="color: red;"> Either an email or a phone number is required.</div>
+                    </div>
+                </div>
+    
+                <button class="btn btn-primary" [disabled]="!form.valid || cmpwd.invalid || (pwd.value !== cmpwd.value) || (!email.value && !phone.value)" >Resgister</button>
+                <nav>
+                    Already have an account ?<a routerLink="/" routerLinkActive="active">Login</a>
+                </nav>
+        </form>
+      </div>
+
+      
+      
+
+</body>
+</html>

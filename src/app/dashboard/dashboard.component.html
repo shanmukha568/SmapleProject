@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Dashboard</h2>
+    <button class="logout-btn" (click)="goLoginComponent()">Logout</button>
+	<table class="dashboard-table">
+	  <thead>
+	    <tr>
+	      <th class="table-heading">Username</th>
+	      <th class="table-heading">First Name</th>
+	      <th class="table-heading">Last Name</th>
+	      <th class="table-heading">Email</th>
+	      <th class="table-heading">Phone</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+		<!-- <tr>
+			<td class="user-info">{{ loggedInUser.username }}</td>
+			<td class="user-info">{{ loggedInUser.firstName }}</td>
+			<td class="user-info">{{ loggedInUser.lastName }}</td>
+			<td class="user-info">{{ loggedInUser.email }}</td>
+			<td class="user-info">{{ loggedInUser.phone }}</td>
+		</tr> -->
+	    <tr *ngFor="let  user of dashBoardUsers;">
+	      <td class="user-info">{{ user.username }}</td>
+	      <td class="user-info">{{ user.firstName }}</td>
+	      <td class="user-info">{{ user.lastName }}</td>
+	      <td class="user-info">{{ user.email }}</td>
+	      <td class="user-info">{{ user.phone }}</td>
+		<td class="user-info"><button (click)="deleteUser(user.username)">delete</button></td>
+	    </tr>
+	  </tbody>
+	</table>
+</body>
+</html>
